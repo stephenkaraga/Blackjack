@@ -42,6 +42,15 @@ computers_hand_value = 0
 player1Hand.push(card1, card3)
 computerHand.push(card2, card4)
 
+def checkAce(cardsArray)
+  flag = false
+  aceCount = 0
+  cardsArray.each do |card|
+    if card.first == 'A'
+      flag = true
+      aceCount +=1
+    end
+end
 
 #This method takes a card array and calculates the numeric value of the hand and returns the value
 def calculate_valueof_hand(cardsArray)
