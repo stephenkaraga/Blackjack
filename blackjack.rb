@@ -80,7 +80,7 @@ if input.downcase == 'hit'
   if players_hand_value > 21
     puts "Oh no!!! You busted! You lose the hand!"
   else
-    puts "You were the dealt the " + dealer_hand.last.first.to_s + " of " dealer_hand.last.last.to_s + "."
+    puts "You were the dealt the " + dealer_hand.last.first.to_s + " of " + dealer_hand.last.last.to_s + "."
     puts "Hit or stand?"
     
     input = gets.chomp
@@ -107,10 +107,10 @@ elsif input.downcase == 'stand'
     dealer_hand.push(card5)
     dealers_hand_value = calculate_hand_value(dealer_hand)
     if dealers_hand_value > 21
-      puts "Dealer receives " + dealer_hand[2].first + " of " dealer_hand[2].last + "."
+      puts "Dealer receives " + dealer_hand[2].first + " of " + dealer_hand[2].last + "."
       puts "Dealer busts. You win!"
     else
-      puts "Dealer receives " + dealer_hand[2].first + " of " dealer_hand[2].last + "." 
+      puts "Dealer receives " + dealer_hand[2].first + " of " + dealer_hand[2].last + "." 
     end
   end
 end
