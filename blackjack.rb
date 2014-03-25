@@ -65,24 +65,25 @@ puts "Dealer has one other card that is face down."
 
 
 puts "Would you like to hit or stand?"
-input = gets.chomp.downcase
+input = gets.chomp
   
 while input != 'hit' && input != 'stand'
   puts "Please enter hit or stand!"
-  input = gets.chomp.downcase
+  input = gets.chomp
 end
 
-if input == 'hit'
+if input.downcase == 'hit'
   card5 = deck_for_game1.shift
   player_hand.push(card5)
   players_hand_value = calculate_hand_value(player_hand)
   if players_hand_value > 21
     puts "Oh no!!! You busted! You lose the hand!"
   else
-    #d = askPlayerToHitOrStand
+    puts "Hit or stand?"
+    #askPlayerToHitOrStand
 
   end
-elsif input == 'stand'
+elsif input.downcase == 'stand'
   if dealers_hand_value >= 17
   puts "Dealers stands. "
   puts "Dealer flips over other card."
@@ -92,6 +93,15 @@ elsif input == 'stand'
       puts "You win!!!"
     else
       puts "You lost the hand. Dealer wins!"
+    end
+
+  else
+    puts "Dealer hits."
+    card5 = deck_for_game1.shift
+    dealer_hand.push(card5)
+    dealers_hand_value = calculate_hand_value(dealer_hand)
+    if dealers_hand_value > 21
+      puts "Dealer busts. You win!"
     end
   end
 end
