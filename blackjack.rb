@@ -1,4 +1,3 @@
-
 suits = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
 cards = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 
@@ -9,6 +8,8 @@ name = gets.chomp.downcase.capitalize!
 
 puts "Alright, " + name + "! Let's get started. "
 
+puts "------------ SHUFFLING CARDS ------------ "
+puts "------------ SHUFFLING CARDS ------------ "
 puts "------------ SHUFFLING CARDS ------------ "
 puts "------------ SHUFFLING CARDS ------------ "
 puts "------------ SHUFFLING CARDS ------------ "
@@ -79,9 +80,15 @@ if input.downcase == 'hit'
   if players_hand_value > 21
     puts "Oh no!!! You busted! You lose the hand!"
   else
+    puts "You were the dealt the " + dealer_hand.last.first.to_s + " of " dealer_hand.last.last.to_s + "."
     puts "Hit or stand?"
-    #askPlayerToHitOrStand
-
+    
+    input = gets.chomp
+    while input != 'hit' && input != 'stand'
+      puts "Please enter hit or stand!"
+      input = gets.chomp
+    end
+  
   end
 elsif input.downcase == 'stand'
   if dealers_hand_value >= 17
@@ -94,14 +101,16 @@ elsif input.downcase == 'stand'
     else
       puts "You lost the hand. Dealer wins!"
     end
-
   else
     puts "Dealer hits."
     card5 = deck_for_game1.shift
     dealer_hand.push(card5)
     dealers_hand_value = calculate_hand_value(dealer_hand)
     if dealers_hand_value > 21
+      puts "Dealer receives " + dealer_hand[2].first + " of " dealer_hand[2].last + "."
       puts "Dealer busts. You win!"
+    else
+      puts "Dealer receives " + dealer_hand[2].first + " of " dealer_hand[2].last + "." 
     end
   end
 end
