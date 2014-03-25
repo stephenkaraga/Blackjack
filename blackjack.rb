@@ -40,9 +40,9 @@ def calculate_hand_value(cards)
     cards.each do |card|
     card_value = card.first.to_i
       if card_value != 0
-        hand_Value = hand_value + card_value
+        hand_value = hand_value + card_value
       elsif card_value == 0 && card.first != 'A'
-        hand_Value = hand_value + 10
+        hand_value = hand_value + 10
       else
         hand_value = hand_value + 11
       end
